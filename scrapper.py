@@ -1,17 +1,19 @@
 import os
 from requests import get
 import tweepy
+from dotenv import load_dotenv
 
-# # Replace these with your own API credentials
-# consumer_key = "YOUR_CONSUMER_KEY"
-# consumer_secret = "YOUR_CONSUMER_SECRET"
-# access_token = "YOUR_ACCESS_TOKEN"
-# access_token_secret = "YOUR_ACCESS_TOKEN_SECRET"
 
-consumer_key = 'nPQ20X1fATpVOvqBgPaqrE0VO'
-consumer_secret = 'vX1PsXahlCkEodNkJBYCWBHwuk8GMeUQEYf6jjNVbZ86T3rU50'
-access_token ='1160574349180579841-DsyCWZNzripudhcEsoiYOQD0spNARr'
-access_token_secret = 'cXaiChUfRyRExkTuK7eaEY1TtjW4mGc5hTc969OTmSr1Y'
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Authentication 
+consumer_key = os.getenv('CONSUMER_KEY')
+consumer_secret = os.getenv('CONSUMER_SECRET')
+access_token = os.getenv('ACCESS_TOKEN')
+access_token_secret = os.getenv('ACCESS_TOKEN_SECRET')
+
 
 # Authenticate with the Twitter API using your credentials
 auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, access_token_secret)
